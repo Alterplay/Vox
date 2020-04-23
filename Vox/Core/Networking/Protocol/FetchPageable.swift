@@ -19,7 +19,7 @@ public struct PaginationData<T> {
 public extension Document where DataType: Collection, DataType.Element: Resource {
     typealias ResourceCollectionSuccessBlock = DataSource<DataType.Element>.ResourceCollectionSuccessBlock
     
-    public var first: FetchRequest<DataType.Element, ResourceCollectionSuccessBlock>? {
+    var first: FetchRequest<DataType.Element, ResourceCollectionSuccessBlock>? {
         guard let client = client else { fatalError("Client not available") }
         guard let first = self.links?.first else { return nil }
         
@@ -28,7 +28,7 @@ public extension Document where DataType: Collection, DataType.Element: Resource
         return dataSource.fetch()
     }
     
-    public var next: FetchRequest<DataType.Element, ResourceCollectionSuccessBlock>? {
+    var next: FetchRequest<DataType.Element, ResourceCollectionSuccessBlock>? {
         guard let client = client else { fatalError("Client not available") }
         guard let next = self.links?.next else { return nil }
         
@@ -37,7 +37,7 @@ public extension Document where DataType: Collection, DataType.Element: Resource
         return dataSource.fetch()
     }
     
-    public var previous: FetchRequest<DataType.Element, ResourceCollectionSuccessBlock>? {
+	var previous: FetchRequest<DataType.Element, ResourceCollectionSuccessBlock>? {
         guard let client = client else { fatalError("Client not available") }
         guard let prev = self.links?.prev else { return nil }
         
@@ -46,7 +46,7 @@ public extension Document where DataType: Collection, DataType.Element: Resource
         return dataSource.fetch()
     }
     
-    public var last: FetchRequest<DataType.Element, ResourceCollectionSuccessBlock>? {
+	var last: FetchRequest<DataType.Element, ResourceCollectionSuccessBlock>? {
         guard let client = client else { fatalError("Client not available") }
         guard let last = self.links?.last else { return nil }
         
@@ -55,7 +55,7 @@ public extension Document where DataType: Collection, DataType.Element: Resource
         return dataSource.fetch()
     }
     
-    public var reload: FetchRequest<DataType.Element, ResourceCollectionSuccessBlock>? {
+	var reload: FetchRequest<DataType.Element, ResourceCollectionSuccessBlock>? {
         guard let client = client else { fatalError("Client not available") }
         guard let _self = self.links?._self else { return nil }
         
@@ -64,7 +64,7 @@ public extension Document where DataType: Collection, DataType.Element: Resource
         return dataSource.fetch()
     }
     
-    public func appendNext(_ completion: ((PaginationData<DataType.Element>) -> Void)? = nil, _ failure: ((Error?) -> Void)? = nil) {
+	func appendNext(_ completion: ((PaginationData<DataType.Element>) -> Void)? = nil, _ failure: ((Error?) -> Void)? = nil) {
         guard let next = self.links?.next else {
             return
         }

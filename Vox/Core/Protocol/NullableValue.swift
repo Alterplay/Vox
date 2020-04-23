@@ -26,13 +26,13 @@ public extension Array where Element == String {
         return self.first == .null
     }
     
-    public static var null: Array<Element> {
+    static var null: Array<Element> {
         return nullStringArray
     }
 }
 
 public extension Dictionary where Key == String, Value: Any {
-    public static var null: Dictionary<String, Any> {
+	static var null: Dictionary<String, Any> {
         return nullDictionary
     }
     
@@ -42,7 +42,7 @@ public extension Dictionary where Key == String, Value: Any {
 }
 
 public extension Array where Element == Dictionary<String, Any> {
-    public static var null: Array<Element> {
+	static var null: Array<Element> {
         return nullDictionaryArray
     }
     
@@ -62,7 +62,7 @@ extension NSNumber: NullableAware {
 }
 
 public extension Array where Element == NSNumber {
-    public static var null: Array<Element> {
+    static var null: Array<Element> {
         return nullNumberArray
     }
     
@@ -89,7 +89,7 @@ public extension Array where Element: Resource {
         return self.first?.id == .null
     }
     
-    public static var null: Array<Element> {
+    static var null: Array<Element> {
         return [.null()]
     }
 }
