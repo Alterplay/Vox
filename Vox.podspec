@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
 	spec.name            = 'Vox'
-	spec.version         = '1.2.3'
+	spec.version         = '1.2.4'
 	spec.license         = 'MIT'
 	spec.summary         = 'A Swift JSONAPI framework'
 	spec.author          = 'Aron Balog'
